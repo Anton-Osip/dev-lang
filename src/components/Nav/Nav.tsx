@@ -1,14 +1,14 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import styles from './Nav.module.css'
 
 export default function Nav() {
   return (
     <nav className={styles.nav}>
-      <a href='#'>Home</a>
-      <a href='#'>Games</a>
-      <a href='#'>Library</a>
-      <a href='#'>Learn</a>
+      <NavLink to='/dashboard'>Home</NavLink>
+      <NavLink to='/games'>Games</NavLink>
+      <NavLink to='/library'>Library</NavLink>
+      <NavLink to='/learn'>Learn</NavLink>
     </nav>
   )
 }
