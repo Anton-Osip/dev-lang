@@ -3,6 +3,8 @@ import styles from './LibraryForm.module.css'
 import addBtn from '../../../assets/img/add.svg'
 import * as Yup from 'yup'
 import { Field, Form, Formik } from 'formik'
+import { useDispatch } from 'react-redux'
+import { addNewWord } from '../../../redux/libraryReduser'
 
 const valid = Yup.object().shape({
   word: Yup.string()
@@ -16,12 +18,13 @@ const valid = Yup.object().shape({
 })
 
 export default function LibraryForm() {
+  const dispatch = useDispatch()
   return (
     <Formik
       initialValues={{ word: '', translation: '' }}
       validationSchema={valid}
       onSubmit={values => {
-        // dispatch(addNewTask(values.task))
+        dispatch(addNewWord({ word: values.word, translation: values.translation }))
         values.word = ''
         values.translation = ''
       }}

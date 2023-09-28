@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import uuid from 'react-uuid'
 // import uuid from 'react-uuid'
 
 export interface ILibraryState {
@@ -24,8 +25,20 @@ const libraryReducer = createSlice({
   name: 'library',
   initialState: initialState,
 
-  reducers: {},
+  reducers: {
+    addNewWord(state, action) {
+      state.wordList.push({
+        id: uuid(),
+        word: action.payload.word,
+        translation: action.payload.translation,
+        learn: 0,
+      })
+    },
+    deleteWord(state, action) {
+      state.wordList = state.wordList.filter(wordItem => wordItem.id !== action.payload)
+    },
+  },
 })
 
 export default libraryReducer.reducer
-// export const {} = libraryReducer.actions
+export const { addNewWord, deleteWord } = libraryReducer.actions
