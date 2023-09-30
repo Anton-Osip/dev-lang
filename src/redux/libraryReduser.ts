@@ -4,6 +4,7 @@ import uuid from 'react-uuid'
 
 export interface ILibraryState {
   wordList: IWordState[]
+  wordIndex: number
 }
 
 export interface IWordState {
@@ -17,8 +18,9 @@ const initialState: ILibraryState = {
   wordList: [
     { id: '1', word: 'кот', translation: 'cat', learn: 80 },
     { id: '2', word: 'собака', translation: 'dog', learn: 80 },
-    { id: '3', word: 'привет', translation: 'hellow', learn: 80 },
+    { id: '3', word: 'привет', translation: 'hello', learn: 80 },
   ],
+  wordIndex: 0,
 }
 
 const libraryReducer = createSlice({
@@ -37,8 +39,15 @@ const libraryReducer = createSlice({
     deleteWord(state, action) {
       state.wordList = state.wordList.filter(wordItem => wordItem.id !== action.payload)
     },
+    setWordIndex(state) {
+      if (state.wordIndex === state.wordList.length - 1) {
+        state.wordIndex = 0
+      } else {
+        state.wordIndex++
+      }
+    },
   },
 })
 
 export default libraryReducer.reducer
-export const { addNewWord, deleteWord } = libraryReducer.actions
+export const { addNewWord, deleteWord, setWordIndex } = libraryReducer.actions

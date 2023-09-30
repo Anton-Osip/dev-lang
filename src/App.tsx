@@ -4,6 +4,7 @@ import Header from './components/Header/Header'
 import Dashboard from './components/Dashboard/Dashboard'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Library from './components/Library/Library'
+import Learn from './components/Learn/Learn'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/library' element={<Library />} />
+        <Route path='/learn' element={<Learn />} />
       </Routes>
     </BrowserRouter>
   )
