@@ -5,6 +5,7 @@ import Dashboard from './components/Dashboard/Dashboard'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Library from './components/Library/Library'
 import Learn from './components/Learn/Learn'
+import Games from './components/Games/Games'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/library' element={<Library />} />
         <Route path='/learn' element={<Learn />} />
+        <Route path='/games' element={<Games />} />
       </Routes>
     </BrowserRouter>
   )
