@@ -1,0 +1,8 @@
+@import 'variables.scss'; //пишем переменные
+@import 'reset.scss'; //сборс стилей
+@import 'fonts.scss'; //подключаем шрифты (локально)
+@import 'style.scss';
+@import 'grid.scss';
+
+//подключаем БЭМ блоки
+@import './blocks/header.scss';

@@ -1,41 +1,40 @@
-import { Reducer, combineReducers, configureStore } from '@reduxjs/toolkit'
-import {
-  FLUSH,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-  REHYDRATE,
-  persistReducer,
-  persistStore,
-} from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
-import libraryReducer,{ ILibraryState } from './libraryReduser'
+// import { Reducer, combineReducers, configureStore } from '@reduxjs/toolkit'
+// import storage from 'redux-persist/lib/storage'
+// import {
+//   persistReducer,
+//   persistStore,
+//   FLUSH,
+//   REHYDRATE,
+//   PAUSE,
+//   PERSIST,
+//   PURGE,
+//   REGISTER,
+// } from 'redux-persist'
+// // import tasksReducer, { ITasksState } from './tasksReducer'
 
+// export interface IRootState {
+//   tasks: ITasksState
+// }
 
-export interface IRootState {
-    library: ILibraryState
-}
+// const persistConfig = {
+//   key: 'root',
+//   storage,
+// }
+// const rootReducer: Reducer<IRootState> = combineReducers({
+//   tasks: tasksReducer,
+// })
 
-const persistConfig = {
-  key: 'root',
-  storage,
-}
-const rootReducer: Reducer<IRootState> = combineReducers({
-  library: libraryReducer,
-})
+// const persistedReducer: any = persistReducer(persistConfig, rootReducer)
 
-const persistedReducer: any = persistReducer(persistConfig, rootReducer)
+// const store = configureStore({
+//   reducer: persistedReducer,
+//   middleware: getDefaultMiddleware =>
+//     getDefaultMiddleware({
+//       serializableCheck: {
+//         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+//       },
+//     }),
+// })
 
-const store = configureStore({
-  reducer: persistedReducer,
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
-})
-
-export const persistor = persistStore(store)
-export default store
+// export const persistor = persistStore(store)
+// export default store
