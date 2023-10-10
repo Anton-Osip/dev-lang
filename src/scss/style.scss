@@ -3,8 +3,9 @@
   font-size: 16px;
 }
 html {
+  font-family: 'Montserrat-Bold';
   scroll-behavior: smooth;
-  color: green;
+  color: $text-color;
 }
 .container {
   margin: 0 auto;
